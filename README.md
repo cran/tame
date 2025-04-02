@@ -1,7 +1,9 @@
 # tame <img src="man/figures/Logo_tame.png" align="right" height="300" />
 
 <!-- badges: start -->
+[![CRANstatus](https://www.r-pkg.org/badges/version/EpiForsk)](https://cran.r-project.org/package=tame)
 [![R-CMD-check](https://github.com/Laksafoss/tame/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Laksafoss/tame/actions/workflows/R-CMD-check.yaml)
+![CRAN Downloads overall](https://cranlogs.r-pkg.org/badges/grand-total/tame)
 <!-- badges: end -->
 
 
@@ -12,16 +14,29 @@
 
 
 
-
 ## Installation
+```
+install.package("tame")
+```
 
-```
-# To Do
-```
 
 ## Usage
+Use `medic` to cluster medication data with ATC codes and dosage trajectories. 
 
 ```
-# To Do
+library(tame)
+
+# A simple clustering based only on ATC
+clust <- medic(complications, id = id, atc = atc, k = 3)
+
+
+# A simple clustering with both ATC and timing
+clust <- medic(
+  complications,
+  id = id,
+  atc = atc,
+  timing = first_trimester:third_trimester,
+  k = 3
+)
 ```
 
